@@ -1,0 +1,11 @@
+#!/bin/sh
+python read_pdb_files. py  #creating the pdb files 
+conda activate AmberTools22 #activating virtual environment to use tleap 
+for i in 1
+do 
+tleap -f file$i.txt #generates pdb files 
+done 
+mkdir pdb_files 
+mv *.pdb pdb_files #moving pdb into one folder 
+rm file* #garbage collection of text files 
+conda deactivate #done with tleap 
